@@ -62,5 +62,12 @@ export default theme => ({
         width: 200
       }
     }
+  },
+  brand: {
+    textDecoration: "none",
+    color: "#ffffff"
+  },
+  noDecor: {
+    textDecoration: "none"
   }
 });

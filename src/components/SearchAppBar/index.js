@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link, withRouter } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -30,7 +31,7 @@ class SearchAppBar extends Component {
   };
 
   render() {
-    const { title, classes, ...props } = this.props;
+    const { title, classes } = this.props;
 
     return (
       <div className={classes.root}>
@@ -44,14 +45,16 @@ class SearchAppBar extends Component {
             >
               <MenuIcon />
             </IconButton>
-            <Typography
-              className={classes.title}
-              variant="h6"
-              color="inherit"
-              noWrap
-            >
-              {title}
-            </Typography>
+            <Link className={classes.brand} to="/">
+              <Typography
+                className={classes.title}
+                variant="h6"
+                color="inherit"
+                noWrap
+              >
+                {title}
+              </Typography>
+            </Link>
             <div className={classes.grow} />
             <div className={classes.search}>
               <div className={classes.searchIcon}>
@@ -68,6 +71,7 @@ class SearchAppBar extends Component {
           </Toolbar>
         </AppBar>
         <Drawer
+          classes={classes}
           toggleDrawer={this.toggleDrawer}
           openDrawer={this.state.openDrawer}
           title={title}
@@ -81,4 +85,4 @@ SearchAppBar.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(SearchAppBar);
+export default withRouter(withStyles(styles)(SearchAppBar));

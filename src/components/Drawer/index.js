@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link, withRouter } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
@@ -27,7 +27,9 @@ class TemporaryDrawer extends Component {
       <div className={classes.list}>
         <List>
           <ListItem>
-            <ListItemText primary={title} />
+            <Link className={classes.brand} to="/">
+              <ListItemText primary={title} />
+            </Link>
           </ListItem>
         </List>
         <Divider />
@@ -78,4 +80,4 @@ TemporaryDrawer.propTypes = {
   openDrawer: PropTypes.bool.isRequired
 };
 
-export default withStyles(styles)(TemporaryDrawer);
+export default withRouter(withStyles(styles)(TemporaryDrawer));
