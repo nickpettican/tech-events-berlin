@@ -62,7 +62,8 @@
     "dev": "node scripts/start.js",
     "start": "node server.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test-watch": "node scripts/test.js",
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -82,7 +83,7 @@
       "react-app-polyfill/jsdom"
     ],
     "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+      "<rootDir>/__tests__/**/*.{js,jsx}",
       "<rootDir>/src/**/?(*.)(spec|test).{js,jsx}"
     ],
     "testEnvironment": "jsdom",
