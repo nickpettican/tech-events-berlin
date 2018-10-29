@@ -63,7 +63,8 @@
     "start": "node server.js",
     "build": "node scripts/build.js",
     "test-watch": "node scripts/test.js",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "node scripts/build.js"
   },
   "eslintConfig": {
     "extends": "react-app"
