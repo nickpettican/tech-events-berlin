@@ -2,7 +2,7 @@
 
 [Live](https://tech-events-berlin.herokuapp.com/)
 
-A bootstraped web app to see the latest tech-related events in Berlin.
+A bootstrapped web app to see the latest tech-related events in Berlin.
 
 ## Installation
 
