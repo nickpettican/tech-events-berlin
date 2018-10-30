@@ -5,6 +5,7 @@ import rootReducer from "./reducers";
 const initialState = {};
 
 const middleware = [thunk];
+
 const composer =
   window.location.host.includes("localhost") &&
   window.__REDUX_DEVTOOLS_EXTENSION__
@@ -14,6 +15,7 @@ const composer =
           window.__REDUX_DEVTOOLS_EXTENSION__()
       )
     : compose(applyMiddleware(...middleware));
+
 const store = createStore(rootReducer, initialState, composer);
 
 export default store;

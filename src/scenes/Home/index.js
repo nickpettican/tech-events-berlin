@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import SearchAppBar from "../../components/SearchAppBar";
 
 class Home extends Component {
@@ -11,4 +13,8 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  isLoading: state.app.isLoading
+});
+
+export default withRouter(connect(mapStateToProps)(Home));

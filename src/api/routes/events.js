@@ -1,22 +1,18 @@
 const router = require("express").Router();
-const eventbrite = require("eventbrite");
-const meetup = require("meetup-api");
-const meetupToken = process.env.MEETUP_API_KEY;
-const eventbriteToken = process.env.EVENTBRITE_OAUTH_TOKEN;
+const getEventbriteEvents = require("../utils/getEventbriteEvents");
+const getMeetupEvents = require("../utils/getMeetupEvents");
 
-router.get("/meetup", (req, res) => {
-  const muSDK = meetup(meetupToken);
-  // TODO magic
+router.get("/meetup", async (req, res) => {
+  let events = await getEventbriteEvents();
   res.status(200).send({
-    events: null
+    events
   });
 });
 
-router.get("/eventbrite", (req, res) => {
-  const ebSDK = eventbrite({ token: eventbriteToken });
-  // TODO magic
+router.get("/eventbrite", async (req, res) => {
+  let events = await getMeetupEvents();
   res.status(200).send({
-    events: null
+    events
   });
 });
 
