@@ -1,8 +1,4 @@
-import {
-  GET_EVENTS_REQUEST,
-  GET_EVENTS_SUCCESS,
-  GET_EVENTS_FAILURE
-} from "../actions/types";
+import { GET_EVENTS_REQUEST, GET_EVENTS_SUCCESS, GET_EVENTS_FAILURE } from "../actions/types";
 
 const initialState = {
   isLoading: false

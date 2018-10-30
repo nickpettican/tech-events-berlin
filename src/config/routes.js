@@ -12,7 +12,7 @@ import AppliedRoute from "../components/AppliedRoute";
  * Custom router that uses Switch to iterate over each route until
  * it finds the one matching the current pathname and renders it
  */
-export default props => {
+export default (props) => {
   return (
     <Switch>
       <AppliedRoute path="/" exact component={Home} />

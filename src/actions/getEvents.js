@@ -1,11 +1,7 @@
 import axios from "axios";
-import {
-  GET_EVENTS_FAILURE,
-  GET_EVENTS_REQUEST,
-  GET_EVENTS_SUCCESS
-} from "./types";
+import { GET_EVENTS_FAILURE, GET_EVENTS_REQUEST, GET_EVENTS_SUCCESS } from "./types";
 
-const getEventsFromRest = async provider => {
+const getEventsFromRest = async (provider) => {
   try {
     let res = await axios(`/rest/${provider}`, {
       method: "GET"
@@ -17,15 +13,13 @@ const getEventsFromRest = async provider => {
   }
 };
 
-export default params => async dispatch => {
+export default (params) => async (dispatch) => {
   dispatch({
     type: GET_EVENTS_REQUEST
   });
   try {
-    let eventsAll = await Promise.all(
-      ["meetup", "eventbrite"].map(getEventsFromRest)
-    );
-    let events = [].concat(...eventsAll).filter(e => e);
+    let eventsAll = await Promise.all(["meetup", "eventbrite"].map(getEventsFromRest));
+    let events = [].concat(...eventsAll).filter((e) => e);
     dispatch({
       type: GET_EVENTS_SUCCESS,
       payload: events
