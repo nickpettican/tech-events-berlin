@@ -24,7 +24,7 @@ class SearchAppBar extends Component {
     this.toggleDrawer = this.toggleDrawer.bind(this);
   }
 
-  toggleDrawer = open => () => {
+  toggleDrawer = (open) => () => {
     this.setState({
       openDrawer: open
     });
@@ -46,12 +46,7 @@ class SearchAppBar extends Component {
               <MenuIcon />
             </IconButton>
             <Link className={classes.brand} to="/">
-              <Typography
-                className={classes.title}
-                variant="h6"
-                color="inherit"
-                noWrap
-              >
+              <Typography className={classes.title} variant="h6" color="inherit" noWrap>
                 {title}
               </Typography>
             </Link>
@@ -71,7 +66,10 @@ class SearchAppBar extends Component {
           </Toolbar>
         </AppBar>
         <Drawer
-          classes={classes}
+          classes={{
+            list: classes.list,
+            brand: classes.brand
+          }}
           toggleDrawer={this.toggleDrawer}
           openDrawer={this.state.openDrawer}
           title={title}

@@ -4,7 +4,24 @@
 
 A bootstrapped web app to see the latest tech-related events in Berlin.
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Installation](#installation)
+- [Main features](#main-features)
+- [Built with](#built-with)
+- [Prerequisites](#prerequisites)
+- [Contributing](#contributing)
+- [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Installation
+
+This app was built with **`Node 9.10.0`**. 
+
+It is recommended to use this version for an optimal build. To manage your Node versions it is recommended to use [NVM](https://github.com/creationix/nvm).
 
 **Step 1** - clone the repo
 
@@ -24,10 +41,17 @@ $ cd tech-events-berlin
 $ npm install
 ```
 
-**Step 4** - run application
+**Step 4** - run application in development mode
 
 ```
-$ npm run start
+$ npm run dev
+```
+
+**Step 5** - run application in production mode
+
+```
+$ npm run build
+$ npm start
 ```
 
 ## Main features
@@ -43,7 +67,6 @@ $ npm run start
 * [Create React App](https://github.com/facebook/create-react-app) - to set up the React environment
 * [Material-UI](https://material-ui.com) - for the beautiful UI components
 * [Express](https://expressjs.com/) - for the server and REST API
-* [Eventbrite SDK](https://github.com/eventbrite/eventbrite-sdk-javascript) - to get the Eventbrite events
 * [Meetup API Library](https://github.com/jkutianski/meetup-api) - to get the Meetup events
 
 ## Prerequisites
