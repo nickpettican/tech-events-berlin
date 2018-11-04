@@ -5,7 +5,10 @@ const sdk = ({ token = null }) => {
   const defaultOptions = { headers: { Authorization: token ? `Bearer ${token}` : "" } };
   return {
     request: (url, options = {}) =>
-      axios.get(baseUrl.concat(url), { ...defaultOptions, ...options })
+      axios.get(baseUrl.concat(url).concat("&expand=venue,organizer"), {
+        ...defaultOptions,
+        ...options
+      })
   };
 };
 
