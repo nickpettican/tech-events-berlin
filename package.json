@@ -86,8 +86,13 @@
     "not op_mini all"
   ],
   "jest": {
+    "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
+    ],
+    "coverageReporters": [
+      "json",
+      "html"
     ],
     "resolver": "jest-pnp-resolver",
     "setupFiles": [
