@@ -7,12 +7,10 @@ const initialState = {};
 const middleware = [thunk];
 
 const composer =
-  window.location.host.includes("localhost") &&
-  window.__REDUX_DEVTOOLS_EXTENSION__
+  window.location.host.includes("localhost") && window.__REDUX_DEVTOOLS_EXTENSION__
     ? compose(
         applyMiddleware(...middleware),
-        window.__REDUX_DEVTOOLS_EXTENSION__ &&
-          window.__REDUX_DEVTOOLS_EXTENSION__()
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
       )
     : compose(applyMiddleware(...middleware));
 

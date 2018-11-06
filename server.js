@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000;
 
 const events = require("./src/api/routes/events");
 
-const server = app.listen(port, err => {
+const server = app.listen(port, (err) => {
   if (err) {
     console.error("Webserver error listening on port: ", port);
     return process.exit();
