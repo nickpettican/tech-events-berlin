@@ -7,14 +7,15 @@
 A bootstrapped web app to see the latest tech-related events in Berlin.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
+
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-  - [Installation](#installation)
-  - [Main features](#main-features)
-  - [Built with](#built-with)
-  - [Prerequisites](#prerequisites)
-  - [Contributing](#contributing)
-  - [License](#license)
+-   [Installation](#installation)
+-   [Main features](#main-features)
+-   [Built with](#built-with)
+-   [Prerequisites](#prerequisites)
+-   [Contributing](#contributing)
+-   [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
