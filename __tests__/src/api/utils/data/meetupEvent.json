@@ -1,1 +1,40 @@
-{"utc_offset":3600000,"venue":{"country":"de","localized_country_name":"Germany","city":"Berlin","address_1":"Klosterstraße 62, 10179 Berlin","name":"N26","lon":13.412334,"id":25372935,"lat":52.516106,"repinned":false},"headcount":0,"distance":1.3886890411376953,"visibility":"public","waitlist_count":0,"created":1538641295000,"maybe_rsvp_count":0,"description":"<p>The Project Canvas is an effective instrument for joint definition of a novel project. The instrument is especially useful for interdisciplinary groups that have never worked together before. The Project Canvas brings the essential questions of complex projects to the point. Through its visual form and natural language, it facilitates a dialogue that puts all those involved on an equal footing and leads to a common understanding of their project.</p> <p>In the workshop, several teams will apply the Project Canvas to real projects. Do you have a new and challenging project? Use this opportunity to apply the Project Canvas live and get more clarity about your project with the help of others. All participants can actively experiment with the Project Canvas and will ultimately be able to employ it effectively in their own context.</p> <p>Karen helps people to collaborate with courage, curiosity, and creativity to achieve outstanding results. In her 20 years management and consulting career, she has supported people in projects and C-level executives in all kinds of organizations across Europe. She connects project superpowers, leadership and facilitation skills with agile and positive change practices</p>","event_url":"https://www.meetup.com/PMBerlin/events/255259506/","yes_rsvp_count":107,"duration":7200000,"name":"PM-Meetup #32: Project Canvas: visual tool for customer-oriented project design","id":"255259506","photo_url":"https://secure.meetupstatic.com/photos/event/8/a/b/global_475142219.jpeg","time":1541527200000,"updated":1539601566000,"group":{"join_mode":"open","created":1369387965000,"name":"Project Management Meetup Berlin","group_lon":13.380000114440918,"id":8622522,"urlname":"PMBerlin","group_lat":52.52000045776367,"who":"Projectees"},"status":"upcoming"}
+{
+  "utc_offset": 3600000,
+  "venue": {
+    "country": "de",
+    "localized_country_name": "Germany",
+    "city": "Berlin",
+    "address_1": "Klosterstraße 62, 10179 Berlin",
+    "name": "N26",
+    "lon": 13.412334,
+    "id": 25372935,
+    "lat": 52.516106,
+    "repinned": false
+  },
+  "headcount": 0,
+  "distance": 1.3886890411376953,
+  "visibility": "public",
+  "waitlist_count": 0,
+  "created": 1538641295000,
+  "maybe_rsvp_count": 0,
+  "description": "<p>The Project Canvas is an effective instrument for joint definition of a novel project. The instrument is especially useful for interdisciplinary groups that have never worked together before. The Project Canvas brings the essential questions of complex projects to the point. Through its visual form and natural language, it facilitates a dialogue that puts all those involved on an equal footing and leads to a common understanding of their project.</p> <p>In the workshop, several teams will apply the Project Canvas to real projects. Do you have a new and challenging project? Use this opportunity to apply the Project Canvas live and get more clarity about your project with the help of others. All participants can actively experiment with the Project Canvas and will ultimately be able to employ it effectively in their own context.</p> <p>Karen helps people to collaborate with courage, curiosity, and creativity to achieve outstanding results. In her 20 years management and consulting career, she has supported people in projects and C-level executives in all kinds of organizations across Europe. She connects project superpowers, leadership and facilitation skills with agile and positive change practices</p>",
+  "event_url": "https://www.meetup.com/PMBerlin/events/255259506/",
+  "yes_rsvp_count": 107,
+  "duration": 7200000,
+  "name": "PM-Meetup #32: Project Canvas: visual tool for customer-oriented project design",
+  "id": "255259506",
+  "photo_url": "https://secure.meetupstatic.com/photos/event/8/a/b/global_475142219.jpeg",
+  "time": 1541527200000,
+  "updated": 1539601566000,
+  "group": {
+    "join_mode": "open",
+    "created": 1369387965000,
+    "name": "Project Management Meetup Berlin",
+    "group_lon": 13.380000114440918,
+    "id": 8622522,
+    "urlname": "PMBerlin",
+    "group_lat": 52.52000045776367,
+    "who": "Projectees"
+  },
+  "status": "upcoming"
+}

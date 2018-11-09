@@ -3,7 +3,7 @@ import eventbriteEvent from "../__tests__/src/api/utils/data/eventbriteEvent";
 const axios = jest.fn((request, opts) => {
   let { method, data } = opts;
   if (method === "GET") {
-    if (Boolean(request.match(/eventbrite/))) {
+    if (request.match(/eventbrite/)) {
       return {
         data: [eventbriteEvent]
       };
@@ -24,7 +24,7 @@ const axios = jest.fn((request, opts) => {
 
 export const get = jest.fn((request, opts) => {
   let { method, data } = opts;
-  if (Boolean(request.match(/eventbrite/))) {
+  if (request.match(/eventbrite/)) {
     return {
       data: [eventbriteEvent]
     };
