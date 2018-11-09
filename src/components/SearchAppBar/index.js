@@ -79,6 +79,10 @@ class SearchAppBar extends Component {
   }
 }
 
+SearchAppBar.defaultProps = {
+  title: "Tech Events Berlin"
+};
+
 SearchAppBar.propTypes = {
   classes: PropTypes.object.isRequired
 };

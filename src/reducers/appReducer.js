@@ -1,10 +1,12 @@
 import { GET_EVENTS_REQUEST, GET_EVENTS_SUCCESS, GET_EVENTS_FAILURE } from "../actions/types";
 
 const initialState = {
-  isLoading: false
+  isLoading: false,
+  events: []
 };
 
 export default (state = initialState, action) => {
+  console.log(action);
   switch (action.type) {
     case GET_EVENTS_REQUEST:
       return {

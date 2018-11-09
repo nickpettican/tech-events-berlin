@@ -1,4 +1,4 @@
-export const convertMeetupEvent = (meetupEvent) => {
+const convertMeetupEvent = (meetupEvent) => {
   try {
     let {
       id,
@@ -36,7 +36,7 @@ export const convertMeetupEvent = (meetupEvent) => {
   }
 };
 
-export const convertEventbriteEvent = (eventbriteEvent) => {
+const convertEventbriteEvent = (eventbriteEvent) => {
   try {
     let { id, name, url, start, end, organizer, venue, logo } = eventbriteEvent;
     return {
@@ -61,4 +61,9 @@ export const convertEventbriteEvent = (eventbriteEvent) => {
   } catch (error) {
     return null;
   }
+};
+
+module.exports = {
+  convertMeetupEvent,
+  convertEventbriteEvent
 };

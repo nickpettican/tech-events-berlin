@@ -13,17 +13,28 @@ const getEventsFromRest = async (provider) => {
   }
 };
 
-export default (params) => async (dispatch) => {
-  dispatch({
-    type: GET_EVENTS_REQUEST
-  });
-  try {
-    let eventsAll = await Promise.all(["meetup", "eventbrite"].map(getEventsFromRest));
-    let events = [].concat(...eventsAll).filter((e) => e);
+const asyncGetEvents = async (dispatch) => {
+  let eventsAll = await Promise.all(["meetup", "eventbrite"].map(getEventsFromRest));
+  let events = [].concat(...eventsAll).filter((e) => e);
+  if (events.length) {
     dispatch({
       type: GET_EVENTS_SUCCESS,
       payload: events
     });
+  } else {
+    dispatch({
+      type: GET_EVENTS_FAILURE,
+      payload: "No events found"
+    });
+  }
+};
+
+export default (params) => (dispatch) => {
+  dispatch({
+    type: GET_EVENTS_REQUEST
+  });
+  try {
+    asyncGetEvents(dispatch);
   } catch (error) {
     dispatch({
       type: GET_EVENTS_FAILURE,

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import logo from "./logo.svg";
 import "./App.css";
 import Routes from "./config/routes";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles";
+import "./styles.css";
 import SearchAppBar from "../../components/SearchAppBar";
 
 /**
@@ -9,8 +9,8 @@ import SearchAppBar from "../../components/SearchAppBar";
 export default () => {
   return (
     <div>
-      <SearchAppBar title="Tech Events Berlin" />
-      <div style={styles.NotFound}>
+      <SearchAppBar />
+      <div className="NotFound">
         <h3>Pages? Where we're going we don't need pages...</h3>
       </div>
     </div>

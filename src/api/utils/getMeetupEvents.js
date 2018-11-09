@@ -2,6 +2,7 @@ const Meetup = require("meetup-api");
 const meetupToken = process.env.MEETUP_API_KEY;
 const CacheService = require("../cache");
 const removeDuplicates = require("./removeDuplicates");
+const convertEventForUi = require("./convertEventForUI").convertMeetupEvent;
 
 const cache = new CacheService();
 
@@ -23,7 +24,6 @@ const getTechEvents = (muSDK, params = {}) =>
         if (!err) {
           resolve(res.results);
         } else {
-          console.error(err);
           return [];
         }
       }
@@ -37,21 +37,23 @@ const getEventsFromAPI = async () => {
     let blockchainEvents = await getTechEvents(muSDK, { text: "blockchain,crypto" });
     return techEvents.concat(blockchainEvents);
   } catch (error) {
-    console.error(error);
     return [];
   }
 };
 
 const cleanUpMeetupEvents = (_events) => {
-  // TODO create functions to return standardised objects for UI
-  return _events;
+  return Promise.all(_events.map(convertEventForUi));
 };
 
 const getNewEvents = async () => {
-  let eventsRaw = await getEventsFromAPI();
-  let uniqueEvents = await removeDuplicates({ list: eventsRaw, key: "id" });
-  let cleanEvents = await cleanUpMeetupEvents(uniqueEvents);
-  return cleanEvents;
+  try {
+    let eventsRaw = await getEventsFromAPI();
+    let uniqueEvents = await removeDuplicates.arrayOfObjects({ list: eventsRaw, key: "id" });
+    let cleanEvents = await cleanUpMeetupEvents(uniqueEvents);
+    return cleanEvents.filter((e) => e);
+  } catch (error) {
+    return [];
+  }
 };
 
 const getEvents = async () => {

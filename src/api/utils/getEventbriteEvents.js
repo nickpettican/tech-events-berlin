@@ -2,6 +2,7 @@ const eventbrite = require("./eventbrite");
 const eventbriteToken = process.env.EVENTBRITE_OAUTH_TOKEN;
 const CacheService = require("../cache");
 const removeDuplicates = require("./removeDuplicates");
+const convertEventForUi = require("./convertEventForUI").convertEventbriteEvent;
 
 const cache = new CacheService();
 
@@ -14,23 +15,25 @@ const getEventsFromAPI = async () => {
     let blockchainEvents = await ebSDK.request(
       "/events/search/?location.address=Berlin&sort_by=date&q=blockchain,crypto"
     );
-    return techEvents.data.concat(blockchainEvents.data);
+    return techEvents.data.events.concat(blockchainEvents.data.events);
   } catch (error) {
-    console.error(error);
     return [];
   }
 };
 
 const cleanUpEventbriteEvents = (_events) => {
-  // TODO create functions to return standardised objects for UI
-  return _events;
+  return Promise.all(_events.map(convertEventForUi));
 };
 
 const getNewEvents = async () => {
-  let eventsRaw = await getEventsFromAPI();
-  let uniqueEvents = await removeDuplicates({ list: eventsRaw, key: "id" });
-  let cleanEvents = await cleanUpEventbriteEvents(uniqueEvents);
-  return cleanEvents;
+  try {
+    let eventsRaw = await getEventsFromAPI();
+    let uniqueEvents = await removeDuplicates.arrayOfObjects({ list: eventsRaw, key: "id" });
+    let cleanEvents = await cleanUpEventbriteEvents(uniqueEvents);
+    return cleanEvents.filter((e) => e);
+  } catch (error) {
+    return [];
+  }
 };
 
 const getEvents = async () => {
