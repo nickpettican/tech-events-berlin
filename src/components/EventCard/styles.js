@@ -4,7 +4,16 @@ export default {
   card: {
     maxWidth: 400,
     margin: "auto",
-    marginBottom: "2em"
+    marginBottom: "1em",
+    marginTop: "1em"
+  },
+  cardHeader: {
+    title: {
+      textAlign: "left"
+    },
+    subheader: {
+      textAlign: "left"
+    }
   },
   media: {
     // ⚠️ object-fit is not supported by IE 11.

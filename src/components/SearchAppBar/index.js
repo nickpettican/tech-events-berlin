@@ -35,7 +35,7 @@ class SearchAppBar extends Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static" className={classes.barMain}>
+        <AppBar position="fixed" className={classes.barMain}>
           <Toolbar>
             <IconButton
               className={classes.menuButton}

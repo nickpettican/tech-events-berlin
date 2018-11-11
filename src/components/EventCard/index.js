@@ -12,6 +12,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import moment from "moment";
 import styles from "./styles";
+import "./EventCard.css";
 
 const avatarTable = {
   meetup:
@@ -34,10 +35,10 @@ const EventCard = ({
   waitlistCount,
   organiser
 }) => {
-  console.log(origin);
   return (
     <Card className={classes.card}>
       <CardHeader
+        classes={classes.cardHeader}
         avatar={<Avatar aria-label={origin} src={avatarTable[origin]} className={classes.avatar} />}
         title={organiser.name}
         subheader={moment(timeStart).calendar()}
