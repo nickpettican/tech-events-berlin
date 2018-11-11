@@ -1,15 +1,14 @@
 const router = require("express").Router();
-const getEventbriteEvents = require("../utils/getEventbriteEvents");
-const getMeetupEvents = require("../utils/getMeetupEvents");
+const getEvents = require("../utils/getEvents");
 const stringify = require("../utils/stringifyEvents");
 
 router.get("/eventbrite", async (req, res) => {
-  let events = await getEventbriteEvents();
+  let events = await getEvents("eventbrite");
   res.status(200).send(stringify(events));
 });
 
 router.get("/meetup", async (req, res) => {
-  let events = await getMeetupEvents();
+  let events = await getEvents("meetup");
   res.status(200).send(stringify(events));
 });
 

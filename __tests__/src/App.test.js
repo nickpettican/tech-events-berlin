@@ -10,11 +10,7 @@ const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
 it("renders without crashing", () => {
-  const initialState = {
-    app: {
-      isLoading: false
-    }
-  };
+  const initialState = { app: { isLoading: false, events: [] } };
   const store = mockStore(initialState);
   const div = document.createElement("div");
   ReactDOM.render(

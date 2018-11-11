@@ -6,6 +6,7 @@ const payloadSchema = {
   items: {
     type: "object",
     properties: {
+      origin: { type: "string" },
       name: { type: "string" },
       eventUrl: { type: "string" },
       id: { type: "string" },

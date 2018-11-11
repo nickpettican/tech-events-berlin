@@ -1,4 +1,5 @@
 export const meetupUI = {
+  origin: "meetup",
   name: "PM-Meetup #32: Project Canvas: visual tool for customer-oriented project design",
   eventUrl: "https://www.meetup.com/PMBerlin/events/255259506/",
   id: "255259506",
@@ -19,6 +20,7 @@ export const meetupUI = {
 };
 
 export const eventbriteUI = {
+  origin: "eventbrite",
   name: " Technology and Crypto-economics for Blockchain Layer-2 Scalability",
   eventUrl:
     "https://www.eventbrite.com/e/technology-and-crypto-economics-for-blockchain-layer-2-scalability-tickets-52189342729?aff=ebapi",

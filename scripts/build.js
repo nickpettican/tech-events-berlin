@@ -37,6 +37,8 @@ const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024;
 
 const isInteractive = process.stdout.isTTY;
 
+const logger = console.log;
+
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);
@@ -67,21 +69,21 @@ checkBrowsers(paths.appPath, isInteractive)
   .then(
     ({ stats, previousFileSizes, warnings }) => {
       if (warnings.length) {
-        console.log(chalk.yellow("Compiled with warnings.\n"));
-        console.log(warnings.join("\n\n"));
-        console.log(
+        logger(chalk.yellow("Compiled with warnings.\n"));
+        logger(warnings.join("\n\n"));
+        logger(
           "\nSearch for the " +
             chalk.underline(chalk.yellow("keywords")) +
             " to learn more about each warning."
         );
-        console.log(
+        logger(
           "To ignore, add " + chalk.cyan("// eslint-disable-next-line") + " to the line before.\n"
         );
       } else {
-        console.log(chalk.green("Compiled successfully.\n"));
+        logger(chalk.green("Compiled successfully.\n"));
       }
 
-      console.log("File sizes after gzip:\n");
+      logger("File sizes after gzip:\n");
       printFileSizesAfterBuild(
         stats,
         previousFileSizes,
@@ -89,7 +91,7 @@ checkBrowsers(paths.appPath, isInteractive)
         WARN_AFTER_BUNDLE_GZIP_SIZE,
         WARN_AFTER_CHUNK_GZIP_SIZE
       );
-      console.log();
+      logger();
 
       const appPackage = require(paths.appPackageJson);
       const publicUrl = paths.publicUrl;
@@ -98,21 +100,21 @@ checkBrowsers(paths.appPath, isInteractive)
       printHostingInstructions(appPackage, publicUrl, publicPath, buildFolder, useYarn);
     },
     (err) => {
-      console.log(chalk.red("Failed to compile.\n"));
+      logger(chalk.red("Failed to compile.\n"));
       printBuildError(err);
       process.exit(1);
     }
   )
   .catch((err) => {
     if (err && err.message) {
-      console.log(err.message);
+      logger(err.message);
     }
     process.exit(1);
   });
 
 // Create the production build and print the deployment instructions.
 function build(previousFileSizes) {
-  console.log("Creating an optimized production build...");
+  logger("Creating an optimized production build...");
 
   let compiler = webpack(config);
   return new Promise((resolve, reject) => {
@@ -144,7 +146,7 @@ function build(previousFileSizes) {
         (typeof process.env.CI !== "string" || process.env.CI.toLowerCase() !== "false") &&
         messages.warnings.length
       ) {
-        console.log(
+        logger(
           chalk.yellow(
             "\nTreating warnings as errors because process.env.CI = true.\n" +
               "Most CI servers set it automatically.\n"

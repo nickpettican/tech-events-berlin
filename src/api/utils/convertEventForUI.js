@@ -1,4 +1,4 @@
-const convertMeetupEvent = (meetupEvent) => {
+const meetup = (meetupEvent) => {
   try {
     let {
       id,
@@ -29,14 +29,15 @@ const convertMeetupEvent = (meetupEvent) => {
       organiser: {
         name: group.name,
         url: `https://www.meetup.com/${group.urlname}`
-      }
+      },
+      origin: "meetup"
     };
   } catch (error) {
     return null;
   }
 };
 
-const convertEventbriteEvent = (eventbriteEvent) => {
+const eventbrite = (eventbriteEvent) => {
   try {
     let { id, name, url, start, end, organizer, venue, logo } = eventbriteEvent;
     return {
@@ -56,7 +57,8 @@ const convertEventbriteEvent = (eventbriteEvent) => {
       organiser: {
         name: organizer.name,
         url: organizer.url
-      }
+      },
+      origin: "eventbrite"
     };
   } catch (error) {
     return null;
@@ -64,6 +66,6 @@ const convertEventbriteEvent = (eventbriteEvent) => {
 };
 
 module.exports = {
-  convertMeetupEvent,
-  convertEventbriteEvent
+  meetup,
+  eventbrite
 };

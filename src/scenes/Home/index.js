@@ -6,6 +6,7 @@ import "./styles.css";
 // components
 import SearchAppBar from "../../components/SearchAppBar";
 import Loading from "../../components/Loading";
+import EventCard from "../../components/EventCard";
 
 // utils
 import getEvents from "../../actions/getEvents";
@@ -17,9 +18,9 @@ class Home extends Component {
 
   render() {
     const renderEvents = () => (
-      <div className="test-objects">
+      <div className="event-container">
         {this.props.events.map((eventData) => (
-          <p>{JSON.stringify(eventData)}</p>
+          <EventCard {...eventData} />
         ))}
       </div>
     );

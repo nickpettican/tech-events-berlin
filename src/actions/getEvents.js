@@ -8,14 +8,16 @@ const getEventsFromRest = async (provider) => {
     });
     return res.data;
   } catch (error) {
-    console.error(error);
     return null;
   }
 };
 
+const sortEventsByTimeStart = (events) => events.sort((a, b) => a.timeStart - b.timeStart);
+
 const asyncGetEvents = async (dispatch) => {
   let eventsAll = await Promise.all(["meetup", "eventbrite"].map(getEventsFromRest));
-  let events = [].concat(...eventsAll).filter((e) => e);
+  let eventsFiltered = [].concat(...eventsAll).filter((e) => e);
+  let events = sortEventsByTimeStart(eventsFiltered);
   if (events.length) {
     dispatch({
       type: GET_EVENTS_SUCCESS,

@@ -1,10 +1,5 @@
 const Meetup = require("meetup-api");
 const meetupToken = process.env.MEETUP_API_KEY;
-const CacheService = require("../cache");
-const removeDuplicates = require("./removeDuplicates");
-const convertEventForUi = require("./convertEventForUI").convertMeetupEvent;
-
-const cache = new CacheService();
 
 const defaultParams = {
   country: "DE",
@@ -41,23 +36,4 @@ const getEventsFromAPI = async () => {
   }
 };
 
-const cleanUpMeetupEvents = (_events) => {
-  return Promise.all(_events.map(convertEventForUi));
-};
-
-const getNewEvents = async () => {
-  try {
-    let eventsRaw = await getEventsFromAPI();
-    let uniqueEvents = await removeDuplicates.arrayOfObjects({ list: eventsRaw, key: "id" });
-    let cleanEvents = await cleanUpMeetupEvents(uniqueEvents);
-    return cleanEvents.filter((e) => e);
-  } catch (error) {
-    return [];
-  }
-};
-
-const getEvents = async () => {
-  return cache.get("meetup", getNewEvents);
-};
-
-module.exports = getEvents;
+module.exports = getEventsFromAPI;

@@ -1,10 +1,5 @@
 const eventbrite = require("./eventbrite");
 const eventbriteToken = process.env.EVENTBRITE_OAUTH_TOKEN;
-const CacheService = require("../cache");
-const removeDuplicates = require("./removeDuplicates");
-const convertEventForUi = require("./convertEventForUI").convertEventbriteEvent;
-
-const cache = new CacheService();
 
 const getEventsFromAPI = async () => {
   try {
@@ -21,23 +16,4 @@ const getEventsFromAPI = async () => {
   }
 };
 
-const cleanUpEventbriteEvents = (_events) => {
-  return Promise.all(_events.map(convertEventForUi));
-};
-
-const getNewEvents = async () => {
-  try {
-    let eventsRaw = await getEventsFromAPI();
-    let uniqueEvents = await removeDuplicates.arrayOfObjects({ list: eventsRaw, key: "id" });
-    let cleanEvents = await cleanUpEventbriteEvents(uniqueEvents);
-    return cleanEvents.filter((e) => e);
-  } catch (error) {
-    return [];
-  }
-};
-
-const getEvents = async () => {
-  return cache.get("eventbrite", getNewEvents);
-};
-
-module.exports = getEvents;
+module.exports = getEventsFromAPI;
