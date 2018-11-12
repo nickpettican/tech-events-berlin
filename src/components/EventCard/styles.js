@@ -2,7 +2,7 @@ import colors from "../../config/colors";
 
 export default {
   card: {
-    maxWidth: 400,
+    maxWidth: 500,
     margin: "auto",
     marginBottom: "1em",
     marginTop: "1em"

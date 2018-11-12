@@ -1,17 +1,18 @@
-const meetup = (meetupEvent) => {
+const defaultPhotoUrl = "/img/default-event-photo.png";
+
+const meetup = ({
+  id,
+  name,
+  photo_url = defaultPhotoUrl,
+  venue,
+  event_url,
+  yes_rsvp_count,
+  time,
+  waitlist_count,
+  group,
+  duration
+}) => {
   try {
-    let {
-      id,
-      name,
-      photo_url,
-      venue,
-      event_url,
-      yes_rsvp_count,
-      time,
-      waitlist_count,
-      group,
-      duration
-    } = meetupEvent;
     return {
       name,
       id,
@@ -44,7 +45,7 @@ const eventbrite = (eventbriteEvent) => {
       name: name.text,
       id,
       eventUrl: url,
-      photoUrl: logo.url,
+      photoUrl: logo.url || defaultPhotoUrl,
       venue: {
         name: venue.address.address_1,
         address: venue.address.localized_address_display,

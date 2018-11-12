@@ -47,7 +47,7 @@ const EventCard = ({
         component="img"
         alt={name}
         className={classes.media}
-        height="140"
+        height="150"
         image={photoUrl}
         title={name}
       />
