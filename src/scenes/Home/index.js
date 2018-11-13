@@ -20,7 +20,7 @@ class Home extends Component {
     const renderEvents = () => (
       <div className="event-container">
         {this.props.events.map((eventData) => (
-          <EventCard {...eventData} />
+          <EventCard key={eventData.id} {...eventData} />
         ))}
       </div>
     );

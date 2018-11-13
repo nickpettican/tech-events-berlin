@@ -1,9 +1,11 @@
 import axios from "axios";
 import { GET_EVENTS_FAILURE, GET_EVENTS_REQUEST, GET_EVENTS_SUCCESS } from "./types";
 
+const restUrl = process.env.NODE_ENV === "development" ? `http://localhost:5000` : "";
+
 const getEventsFromRest = async (provider) => {
   try {
-    let res = await axios(`/rest/${provider}`, {
+    let res = await axios(`${restUrl}/rest/${provider}`, {
       method: "GET"
     });
     return res.data;

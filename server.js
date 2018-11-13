@@ -5,7 +5,7 @@ const path = require("path");
 const cors = require("cors");
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000; // ⚠️ if changing, make sure to change on src/actions/getEvents
 
 const events = require("./src/api/routes/events");
 

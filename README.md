@@ -35,22 +35,29 @@ It is recommended to use this version for an optimal build. To manage your Node 
 
 **Step 3** - install dependencies
 
+    $ yarn
+
+or
+
     $ npm install
 
-**Step 4** - run application in development mode
+**Step 4** - add environment variables (see **Prerequisites** bellow)
+
+**Step 5** - run application in development mode
 
     $ npm run dev
+    $ npm start
 
-**Step 5** - run application in production mode
+**Step 6** - run application in production mode
 
     $ npm run build
     $ npm start
 
 ## Main features
 
--   [ ] List of Berlin tech events
--   [ ] Up to date data
--   [ ] Sleek UI
+-   [x] List of Berlin tech events
+-   [x] Up to date data
+-   [x] Sleek UI
 -   [x] Service Worker
 -   [x] Offline access
 
@@ -67,6 +74,13 @@ Before you get going it's important to get the necessary API tokens for:
 
 -   [Eventbrite](https://www.eventbrite.com/developer/v3/api_overview/authentication/#ebapi-getting-a-token)
 -   [Meetup](https://secure.meetup.com/meetup_api/key/)
+
+Once you have obtained the tokens set the following environment variables. You can create a `.env` file as follows:
+
+```
+EVENTBRITE_OAUTH_TOKEN=<your_eventbrite_token>
+MEETUP_API_KEY=<your_meetup_key>
+```
 
 ## Contributing
 
