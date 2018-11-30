@@ -1,7 +1,7 @@
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import colors from "../../config/colors";
 
-export default theme => ({
+export default (theme) => ({
   root: {
     width: "100%",
     backgroundColor: colors.b6

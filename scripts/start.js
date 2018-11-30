@@ -53,7 +53,7 @@ if (process.env.HOST) {
       )}`
     )
   );
-  logger(`If this was unintentional, check that you haven't mistakenly set it in your shell.`);
+  logger("If this was unintentional, check that you haven't mistakenly set it in your shell.");
   logger(`Learn more here: ${chalk.yellow("http://bit.ly/CRA-advanced-config")}`);
   logger();
 }

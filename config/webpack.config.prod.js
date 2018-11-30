@@ -1,5 +1,3 @@
-"use strict";
-
 const path = require("path");
 const webpack = require("webpack");
 const PnpWebpackPlugin = require("pnp-webpack-plugin");
@@ -38,7 +36,7 @@ const env = getClientEnvironment(publicUrl);
 
 // Assert this just to be safe.
 // Development builds of React are slow and not intended for production.
-if (env.stringified["process.env"].NODE_ENV !== '"production"') {
+if (env.stringified["process.env"].NODE_ENV !== "\"production\"") {
   throw new Error("Production builds must have NODE_ENV=production.");
 }
 
@@ -53,7 +51,7 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
   const loaders = [
     {
       loader: MiniCssExtractPlugin.loader,
-      options: Object.assign({}, shouldUseRelativeAssetPaths ? { publicPath: "../../" } : undefined)
+      options: Object.assign({}, shouldUseRelativeAssetPaths ? { publicPath: "../../" } : null)
     },
     {
       loader: require.resolve("css-loader"),
@@ -113,7 +111,7 @@ module.exports = {
     filename: "static/js/[name].[chunkhash:8].js",
     chunkFilename: "static/js/[name].[chunkhash:8].chunk.js",
     // We inferred the "public path" (such as / or /my-project) from homepage.
-    publicPath: publicPath,
+    publicPath,
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: (info) =>
       path.relative(paths.appSrc, info.absoluteResourcePath).replace(/\\/g, "/")
@@ -152,7 +150,7 @@ module.exports = {
             comments: false,
             // Turned on because emoji and regex is not minified properly using default
             // https://github.com/facebook/create-react-app/issues/2488
-            ascii_only: true
+            "ascii_only": true
           }
         },
         // Use multi-process parallel running to improve the build speed

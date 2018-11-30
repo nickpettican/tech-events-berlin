@@ -6,29 +6,27 @@ const convertEventForUi = require("./convertEventForUI");
 
 const cache = new CacheService();
 
-const getEventsFromAPI = (apiName) => {
-  switch (apiName) {
-    case "eventbrite":
-      return getEventsFromEventbrite();
-
-    case "meetup":
-      return getEventsFromMeetup();
-
-    default:
-      return Promise.reject("apiName does not match either 'meetup' nor 'eventbrite'");
-  }
-};
-
-const cleanUpEvents = (_events, apiName) => {
-  return Promise.all(_events.map(convertEventForUi[apiName]));
-};
+const filterUniqueEvents = (_eventsRaw) =>
+  removeDuplicates.arrayOfObjects({ list: _eventsRaw, key: "id" });
 
 const getNewEvents = async (apiName) => {
   try {
-    let eventsRaw = await getEventsFromAPI(apiName);
-    let uniqueEvents = await removeDuplicates.arrayOfObjects({ list: eventsRaw, key: "id" });
-    let cleanEvents = await cleanUpEvents(uniqueEvents, apiName);
-    return cleanEvents.filter((e) => e);
+    switch (apiName) {
+      case "eventbrite":
+        let ebEventsRaw = await getEventsFromEventbrite();
+        let uniqueEbEvents = await filterUniqueEvents(ebEventsRaw);
+        let cleanEbEvents = await Promise.all(uniqueEbEvents.map(convertEventForUi.eventbrite));
+        return cleanEbEvents.filter((e) => e);
+
+      case "meetup":
+        let muEventsRaw = await getEventsFromMeetup();
+        let uniqueMuEvents = await filterUniqueEvents(muEventsRaw);
+        let cleanMuEvents = await Promise.all(uniqueMuEvents.map(convertEventForUi.meetup));
+        return cleanMuEvents.filter((e) => e);
+
+      default:
+        return [];
+    }
   } catch (error) {
     return [];
   }

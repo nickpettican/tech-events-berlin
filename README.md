@@ -2,7 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c464f9d3c06f4a7aad1d367163a73821)](https://www.codacy.com/app/nickpettican/tech-events-berlin?utm_source=github.com&utm_medium=referral&utm_content=nickpettican/tech-events-berlin&utm_campaign=Badge_Grade)
 
-### [Live](https://tech-events-berlin.herokuapp.com/)
+## [Live](https://tech-events-berlin.herokuapp.com/)
 
 A bootstrapped web app to see the latest tech-related events in Berlin.
 
@@ -77,7 +77,7 @@ Before you get going it's important to get the necessary API tokens for:
 
 Once you have obtained the tokens set the following environment variables. You can create a `.env` file as follows:
 
-```
+```bash
 EVENTBRITE_OAUTH_TOKEN=<your_eventbrite_token>
 MEETUP_API_KEY=<your_meetup_key>
 ```
