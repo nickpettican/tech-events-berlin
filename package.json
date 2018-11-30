@@ -91,7 +91,6 @@
     "build-watch": "nodemon --ignore src/api --ignore build --ignore __tests__ --ignore __mock__ --exec \"npm run build\"",
     "test-watch": "node scripts/test.js",
     "test": "jest",
-    "preinstall": "npm install",
     "postinstall": "node scripts/build.js"
   },
   "eslintConfig": {
