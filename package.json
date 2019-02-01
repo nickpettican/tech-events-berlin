@@ -13,8 +13,8 @@
   "bugs": "https://github.com/nickpettican/tech-events-berlin/issues",
   "private": true,
   "engines": {
-    "node": "9.10.0",
-    "yarn": "1.7.0"
+    "node": "10.14.1",
+    "yarn": "1.12.3"
   },
   "dependencies": {
     "@babel/core": "7.1.0",

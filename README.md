@@ -60,6 +60,7 @@ or
 -   [x] Sleek UI
 -   [x] Service Worker
 -   [x] Offline access
+-   [ ] Filter by topic
 
 ## Built with
 

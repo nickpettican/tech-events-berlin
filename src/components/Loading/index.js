@@ -7,7 +7,8 @@ import colors from "../../config/colors";
 const styles = (theme) => ({
   progress: {
     margin: theme.spacing.unit * 2,
-    marginTop: "30%",
+    marginTop: "10%",
+    marginBottom: "10%",
     color: colors.b6
   }
 });

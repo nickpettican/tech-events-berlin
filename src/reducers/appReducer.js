@@ -2,7 +2,8 @@ import { GET_EVENTS_REQUEST, GET_EVENTS_SUCCESS, GET_EVENTS_FAILURE } from "../a
 
 const initialState = {
   isLoading: false,
-  events: []
+  events: [],
+  grid: true
 };
 
 export default (state = initialState, action) => {

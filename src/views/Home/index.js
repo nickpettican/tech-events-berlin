@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import "./styles.css";
+import { withStyles, CssBaseline } from "@material-ui/core";
+import styles from "./styles";
 
 // components
 import SearchAppBar from "../../components/SearchAppBar";
 import Loading from "../../components/Loading";
 import EventCard from "../../components/EventCard";
+import Footer from "../../components/Footer";
 
 // utils
 import getEvents from "../../actions/getEvents";
+import EventsGrid from "../../components/EventsGrid";
+import Hero from "../../components/Hero";
 
 class Home extends Component {
   componentWillMount() {
@@ -17,9 +21,13 @@ class Home extends Component {
   }
 
   render() {
-    const renderEvents = () => (
-      <div className="event-container">
-        {this.props.events.map((eventData) => (
+    const { classes, events } = this.props;
+
+    const renderEventsGrid = () => <EventsGrid events={events} />;
+
+    const renderEventsList = () => (
+      <div className={classes.eventContainer}>
+        {events.map((eventData) => (
           <EventCard key={eventData.id} {...eventData} />
         ))}
       </div>
@@ -27,8 +35,17 @@ class Home extends Component {
 
     return (
       <div>
+        <CssBaseline />
         <SearchAppBar />
-        {this.props.isLoading ? <Loading /> : renderEvents()}
+        <Hero />
+        {this.props.isLoading ? (
+          <Loading />
+        ) : this.props.grid ? (
+          renderEventsGrid()
+        ) : (
+          renderEventsList()
+        )}
+        <Footer />
       </div>
     );
   }
@@ -36,7 +53,8 @@ class Home extends Component {
 
 const mapStateToProps = (state) => ({
   isLoading: state.app.isLoading,
-  events: state.app.events
+  events: state.app.events,
+  grid: state.app.grid
 });
 
 const mapDispatchToProps = {
@@ -47,5 +65,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(Home)
+  )(withStyles(styles)(Home))
 );

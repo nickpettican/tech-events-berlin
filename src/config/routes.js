@@ -2,8 +2,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 // scenes
-import Home from "../scenes/Home";
-import NotFound from "../scenes/404";
+import Home from "../views/Home";
+import NotFound from "../views/404";
 
 // components
 import AppliedRoute from "../components/AppliedRoute";

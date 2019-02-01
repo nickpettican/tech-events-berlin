@@ -6,9 +6,10 @@ import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
+// import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import ListIcon from "@material-ui/icons/List";
+// import ListIcon from "@material-ui/icons/List";
+import Checkbox from "@material-ui/core/Checkbox";
 
 const styles = {
   list: {
@@ -34,16 +35,14 @@ class TemporaryDrawer extends Component {
         </List>
         <Divider />
         <List>
-          {["Data Science", "GDPR"].map((text, index) => (
+          {["Data Science", "GDPR", "Node.js", "Python"].map((text, index) => (
             <ListItem button key={index}>
-              <ListItemIcon>
-                <ListIcon />
-              </ListItemIcon>
+              <Checkbox style={{ padding: 0 }} />
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
-        <Divider />
+        {/* <Divider />
         <List>
           {["Crypto", "Blockchain"].map((text, index) => (
             <ListItem button key={index}>
@@ -53,7 +52,7 @@ class TemporaryDrawer extends Component {
               <ListItemText primary={text} />
             </ListItem>
           ))}
-        </List>
+        </List> */}
       </div>
     );
 
