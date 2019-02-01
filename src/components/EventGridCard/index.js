@@ -8,11 +8,12 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-// import LocationIcon from "@material-ui/icons/LocationOn";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import moment from "moment";
 import styles from "./styles";
+import { TableBody, TableRow, TableCell } from "@material-ui/core";
+import { CalendarToday, AccessTime, People, LocationOn } from "@material-ui/icons";
 
 const avatarTable = {
   meetup:
@@ -70,22 +71,52 @@ const EventGridCard = ({
           <Typography align="left" gutterBottom variant="h6" component="h2">
             {name}
           </Typography>
-          <Typography align="left" gutterBottom component="p" className={classes.h6}>
-            {`${eventTimeStart.format("MMM Do YYYY")}, ${eventTimeStart.fromNow()}`}
-          </Typography>
-          <Typography align="left" gutterBottom component="p" className={classes.h6Bold}>
-            {`${eventTimeStart.format("H:mm")} - ${eventTimeEnd.format("H:mm")}`}
-          </Typography>
-          {attendees ? (
-            <Typography align="left" gutterBottom component="p" className={classes.h6}>
-              {`${attendees} people attending`}
-            </Typography>
-          ) : null}
-          <Typography align="left" component="p">
-            <a className={classes.locationLink} href={convertToGoogleMapsLink(venue.address)}>
-              {venue.address}
-            </a>
-          </Typography>
+          <TableBody>
+            <TableRow>
+              <TableCell align="left" className={classes.tableIcon}>
+                <CalendarToday />
+              </TableCell>
+              <TableCell>
+                <Typography align="left" gutterBottom component="p" className={classes.h6}>
+                  {`${eventTimeStart.format("MMM Do YYYY")}, ${eventTimeStart.fromNow()}`}
+                </Typography>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell align="left" className={classes.tableIcon}>
+                <AccessTime />
+              </TableCell>
+              <TableCell>
+                <Typography align="left" gutterBottom component="p" className={classes.h6Bold}>
+                  {`${eventTimeStart.format("H:mm")} - ${eventTimeEnd.format("H:mm")}`}
+                </Typography>
+              </TableCell>
+            </TableRow>
+            {attendees ? (
+              <TableRow>
+                <TableCell align="left" className={classes.tableIcon}>
+                  <People />
+                </TableCell>
+                <TableCell>
+                  <Typography align="left" gutterBottom component="p" className={classes.h6}>
+                    {`${attendees} people attending`}
+                  </Typography>
+                </TableCell>
+              </TableRow>
+            ) : null}
+            <TableRow>
+              <TableCell align="left" className={classes.tableIcon}>
+                <LocationOn />
+              </TableCell>
+              <TableCell>
+                <Typography align="left" gutterBottom component="p">
+                  <a className={classes.locationLink} href={convertToGoogleMapsLink(venue.address)}>
+                    {venue.address}
+                  </a>
+                </Typography>
+              </TableCell>
+            </TableRow>
+          </TableBody>
         </CardContent>
         <CardActions>
           <Button

@@ -21,7 +21,7 @@ A bootstrapped web app to see the latest tech-related events in Berlin.
 
 ## Installation
 
-This app was built with **`Node 9.10.0`**. 
+This app was built with **`Node 10.14.1`**. 
 
 It is recommended to use this version for an optimal build. To manage your Node versions it is recommended to use [NVM](https://github.com/creationix/nvm).
 

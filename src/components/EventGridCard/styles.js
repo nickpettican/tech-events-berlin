@@ -36,5 +36,9 @@ export default () => ({
   h6Bold: {
     fontSize: "1.1em",
     fontWeight: 600
+  },
+  tableIcon: {
+    paddingLeft: 0,
+    paddingRight: 5
   }
 });
